@@ -22,7 +22,9 @@
     --section-header-align: center;
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
