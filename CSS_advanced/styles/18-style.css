@@ -107,7 +107,7 @@ a:active {
 
 .nav .nav-link {
     display: block;
-    padding: calc(0.5 * var(--font-size-medium)) var(--font-size-medium);
+    padding: 0.5rem 1rem;
 }
 
 .nav .nav-link:hover {
