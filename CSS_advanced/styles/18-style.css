@@ -94,7 +94,6 @@ a:active {
     padding: 0;
     text-align: center;
     list-style: none;
-    padding: calc(0.5 * var(--font-size-medium)) var(--font-size-medium);
 }
 
 .nav .nav-item {
