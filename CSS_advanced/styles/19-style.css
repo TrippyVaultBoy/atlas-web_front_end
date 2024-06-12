@@ -159,7 +159,7 @@ ul.row {
 
 .footer-copyright {
     margin: 0;
-    font-size: font var(--font-size-small);
+    font-size: var(--font-size-small);
     color: var(--text-color);
 }
 
