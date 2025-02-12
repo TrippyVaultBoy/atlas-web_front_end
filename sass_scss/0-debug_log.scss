@@ -1,2 +1,4 @@
 /* My style */
-@error 'This is an error';
+.error {
+    @error 'This is an error';
+}
