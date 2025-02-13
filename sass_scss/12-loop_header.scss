@@ -1,0 +1,7 @@
+/* My Style */
+
+@for $num from 1 through 5 {
+    h#{$num} {
+      font-size: #{num}px;  
+    }
+}
