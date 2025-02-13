@@ -1,0 +1,9 @@
+/* My Style */
+
+@import "11-photos.css";
+
+@each $name in $list-names {
+    .photo-#{$name} {
+        background: image-url("photos/{$name}.jgp") no-repeat;
+    }
+}
