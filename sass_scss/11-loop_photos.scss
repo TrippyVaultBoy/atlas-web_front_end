@@ -1,6 +1,6 @@
 /* My Style */
 
-@use '11-photos.scss';
+@import '11-photos.scss';
 
 @each $name in $list-names {
     .photo-#{$name} {
