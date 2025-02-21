@@ -821,6 +821,14 @@
         position: relative;
     }
 
+    .form-search .search-button {
+        display: inline-block;
+        background: transparent;
+        border: 0;
+        margin: 0;
+        padding: 0;
+    }
+
     .search-button .search-icon {
         fill: var(--color-white);
         width: 1.5rem;
