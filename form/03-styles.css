@@ -681,7 +681,7 @@
     label {
         cursor: pointer;
         display: block;
-        white-space: pre;
+        white-space: preserve nowrap;
         font-size: 1.4rem;
         padding: 0 0 .5rem;
     }
