@@ -12,12 +12,12 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container-lg p-5">
-            <div class="g-4 row row-cols-1 row-cols-lg-3">
-                <div class="card">
-                    <div class="">
+        <div class="container-fluid p-5">
+            <div class="row row-cols-1 row-cols-md-3 row-cols-sm-1">
+                <div class="col mb-4">
+                    <div class="card h-100">
                         <div class="card-header">Coding</div>
-                        <img src="https://via.placeholder.com/450x200" class="card-img-top h-200 w-450"/>
+                        <img src="https://placehold.co/450x200.png" class="card-img-top"/>
                         <div class="card-body">
                             <h5 class="card-title">HTML</h5>
                             <p class="card-text">Hypertext Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser.</p>
@@ -26,10 +26,10 @@
                         <div class="card-footer">40h</div>
                     </div>
                 </div>
-                <div class="card">
-                    <div>
+                <div class="col mb-4">
+                    <div class="card h-100">
                         <div class="card-header">Coding</div>
-                        <img src="https://via.placeholder.com/450x200" class="card-img-top h-200 w-450"/>
+                        <img src="https://placehold.co/450x200.png" class="card-img-top"/>
                         <div class="card-body">
                             <h5 class="card-title">CSS</h5>
                             <p class="card-text">Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language like HTML.</p>
@@ -38,10 +38,10 @@
                         <div class="card-footer">35h</div>
                     </div>
                 </div>
-                <div class="card">
-                    <div>
+                <div class="col mb-4">
+                    <div class="card h-100">
                         <div class="card-header">Coding</div>
-                        <img src="https://via.placeholder.com/450x200" class="card-image-top h-200 w-450"/>
+                        <img src="https://placehold.co/450x200.png" class="card-img-top"/>
                         <div class="card-body">
                             <h5 class="card-title">Javascript</h5>
                             <p class="card-text">JavaScript, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification.</p>
@@ -54,16 +54,16 @@
         </div>
 
         <!-- Modal -->
-        <div id="playModal" tabindex="-1" role="dialog" aria-labelledby="playModal" aria-hidden="true">
-            <div role="document">
-                <div>
-                    <div>
+        <div class="modal fade" id="playModal" tabindex="-1" role="dialog" aria-labelledby="playModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
                         <h5 id="exampleModalLabel">Play with CodePen</h5>
                         <button type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div>
+                    <div class="modal-body">
                         <p>
                             CodePen is an online community for testing and showcasing user-created HTML, CSS and JavaScript code snippets. 
                             It functions as an online code editor and open-source learning environment, where developers can create code snippets, called "pens," and test them.
@@ -77,23 +77,23 @@
                         </p>
 
                         <form>
-                            <div>
+                            <div class="border-top pb-3 pt-3">
                                 <h5>Connect</h5>
                             </div>
-                            <div>
-                                <label for="username">Username</label>
-                                <div>
-                                    <input type="text" id="username" />
+                            <div class="row mb-3">
+                                <label class="col-2 col-form-label" for="username">Username</label>
+                                <div class="col-10">
+                                    <input type="text" id="username" class="form-control"/>
                                 </div>
                             </div>
-                            <div>
-                                <label for="password">Password</label>
-                                <div>
-                                    <input type="password" id="password" />
+                            <div class="row mb-3">
+                                <label class="col-2 col-form-label" for="password">Password</label>
+                                <div class="col-10">
+                                    <input type="password" id="password" class="form-control"/>
                                 </div>
                             </div>
-                            <div>
-                                <button type="submit">Connect</button>
+                            <div class="d-flex justify-content-end pb-3">
+                                <button class="btn btn-danger" type="submit">Connect</button>
                             </div>
                         </form>
                     </div>
