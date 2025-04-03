@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <title>Task 8</title>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+        </script>
+        
+        <style>
+            .loading {
+                opacity: 0.2;
+            }
+        </style>
+        
+        <script>
+            function createSearchForm() {
+                const form = $('<form>');
+                const input = $('<input type="text">');
+                const submit = $('<button type="submit">').text('Submit');
+                const results = $('<ul>');
+                const pages = $('<ul id="pagination">')
+                
+                form.append(input, submit);
+                $('body').append(form, results, pages);
+
+                form.on('submit', function (event) {
+                    event.preventDefault();
+                    const query = input.val();
+                    if (query) {
+                        queryWikipedia(query);
+                    }
+                });
+            }
+
+            function addNewArticle(id, title, snippet) {
+                const listElement = $('<li>');
+                
+                listElement.append(
+                    $('<p>').append(
+                        $('<span>').text(`${id} -`),
+                        $('<b>').text(title)
+                    ),
+                    $('<p>').html(snippet)
+                );
+
+                listElement.appendTo('ul');
+            }
+
+            function queryWikipedia(search, offset = 0) {
+                displayLoading(true);
+                
+                const data = {
+                    action: 'query',
+                    format: 'json',
+                    list: 'search',
+                    srsearch: search,
+                    origin: '*',
+                    sroffset: offset
+                }
+
+                $.get('https://en.wikipedia.org/w/api.php', data, function (response) {
+                    $('ul').empty();
+                    if (response.query && response.query.search) {
+                        response.query.search.forEach(article => {
+                            addNewArticle(article.pageid, article.title, article.snippet);
+                        });
+                        buildPagination(response.query.searchinfo.totalhits, 10, offset);
+                    }
+                    displayLoading(false);
+                });
+            }
+
+            function buildPagination(numberOfItems, itemsPerPage, currentOffset) {
+                $('#pagination').empty();
+                $('#pagination').css({
+                    'display': 'flex',
+                    'list-style': 'none',
+                    'padding': '0',
+                })
+
+                const numPages = (numberOfItems/itemsPerPage);
+                const currentPage = (currentOffset/itemsPerPage + 1);
+
+                for (let i = 0; i <= numPages; i++) {
+                    const offset = ((i - 1) * itemsPerPage);
+                    const pageItem = $('<li>');
+
+                    let fontWeight;
+                    if (i === currentPage) {
+                        fontWeight = 'bold';
+                    } else {
+                        fontWeight = 'normal';
+                    }
+
+                    pageItem.text(i);
+                    pageItem.css({
+                        'cursor': 'pointer',
+                        'margin-left': '10px',
+                        'font-weight': fontWeight,
+                    });
+
+                    if (i !== currentPage) {
+                        pageItem.on('click', function () {
+                            queryWikipedia($('input').val(), offset);
+                        });
+                    }
+
+                    $('#pagination').append(pageItem);
+                }
+            }
+
+            function displayLoading(loading) {
+                const first = $('ul:first');
+
+                if (loading) {
+                    first.wrap('<div class="loading"></div>');
+                } else {
+                    first.unwrap();
+                }
+            }
+
+            $(document).ready(function () {
+                createSearchForm();
+            });
+        </script>
+
+    </head>
+
+    <body>
+        
+    </body>
+
+</html>
