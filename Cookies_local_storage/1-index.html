@@ -31,7 +31,7 @@
 
             function showCookies() {
                 const cookieP = document.createElement('p');
-                cookieP.innerHTML = 'Cookies: ' + document.cookie;
+                cookieP.innerHTML = 'Cookies: <br>' + document.cookie.replace(/;/g, '<br>');
                 document.body.appendChild(cookieP);
             }
         </script>
